@@ -18,14 +18,14 @@ function Profile() {
   return (
     <div className={openProfile ? style.profileOpen : style.profileClose}>
       <div>
-        <Avatar size={'large'} fullname={profile} />
+        <Avatar size={'large'} contact={profile} />
         <div className={style.profileNameEmail}>
           <div className={style.profileName}>{profile?.fullname}</div>
           <div className={style.nick}>@{profile?.username}</div>
           <Connection />
         </div>
       </div>
-      <Social socials={profile} />
+      <Social />
       <Media />
     </div>
   );

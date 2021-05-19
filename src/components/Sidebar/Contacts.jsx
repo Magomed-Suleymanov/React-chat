@@ -4,7 +4,7 @@ import moment from 'moment';
 import Avatar from '../App/Avatar/Avatar';
 import style from './style.module.css';
 
-function Ontact({ contact }) {
+function Contacts({ contact }) {
   const openContactId = useParams()._id;
 
   const cutMessage = (text) => {
@@ -20,7 +20,7 @@ function Ontact({ contact }) {
         className={`${style.contact}
     ${contact._id === openContactId ? style.contactActive : ''}`}
       >
-        <Avatar size={'medium'} fullname={contact} online={contact} />
+        <Avatar size={'medium'} contact={contact} online={contact} />
         <div className={style.contentBlock}>
           <div>
             <div className={style.fullName}>{contact.fullname}</div>
@@ -37,8 +37,8 @@ function Ontact({ contact }) {
   );
 }
 
-Ontact.propTypes = {
+Contacts.propTypes = {
   contact: PropTypes.object.isRequired,
 };
 
-export default Ontact;
+export default Contacts;

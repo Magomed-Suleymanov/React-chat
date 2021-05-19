@@ -18,7 +18,7 @@ function Inbox({ message }) {
 
   return (
     <div className={style.inbox}>
-      <Avatar size={'small'} fullname={fullname} />
+      <Avatar size={'small'} contact={fullname} />
       <div className={style.inboxMessage}>
         <div className={style.content}>{message.content}</div>
         <div className={style.date}>

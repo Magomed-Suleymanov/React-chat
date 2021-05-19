@@ -1,10 +1,10 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { loadContacts } from '../../redux/ducks/contacts';
 import { useEffect } from 'react';
-import Ontact from './Contact';
 import SkeletonLoader from './SkeletonLoader';
 import SearchContacts from './SearchContacts';
 import style from './style.module.css';
+import Contacts from './Contacts';
 
 function Chats() {
   const loading = useSelector((state) => state.contacts.loading);
@@ -32,7 +32,7 @@ function Chats() {
         <SkeletonLoader />
       ) : (
         contacts.map((contact) => {
-          return <Ontact contact={contact} key={contact._id} />;
+          return <Contacts contact={contact} key={contact._id} />;
         })
       )}
     </div>

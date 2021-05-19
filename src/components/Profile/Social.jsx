@@ -1,12 +1,20 @@
-import PropTypes from 'prop-types';
 import {
   AiOutlineInstagram,
   AiOutlineTwitter,
   FaFacebookF,
 } from 'react-icons/all';
 import style from './style.module.css';
+import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 
-function Social({ socials }) {
+function Social() {
+  const openProfileInfo = useParams()._id;
+  const socials = useSelector((state) =>
+    state.contacts.items.find((item) => {
+      return openProfileInfo === item._id;
+    }),
+  );
+
   return (
     <div className={style.profileSocial}>
       <div className={style.headSocial}>Social</div>
@@ -44,8 +52,6 @@ function Social({ socials }) {
   );
 }
 
-Social.propTypes = {
-  socials: PropTypes.object.isRequired,
-};
+
 
 export default Social;
