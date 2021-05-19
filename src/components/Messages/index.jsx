@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { loadMessages } from '../../redux/ducks/messages';
 import { useParams } from 'react-router-dom';
-import MessagesBody from './MessagesBody/MessagesBody';
+import Index from './MessagesBody';
 import SendMessages from './SendMessages/SendMessages';
 import HeaderMessages from './HeaderMessages/HeaderMessages';
 import style from './style.module.css';
@@ -32,7 +32,7 @@ function Messages() {
   return (
     <div className={style.messages}>
       <HeaderMessages />
-      <MessagesBody />
+      <Index />
       <SendMessages />
     </div>
   );

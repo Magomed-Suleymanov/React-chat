@@ -8,20 +8,17 @@ import style from './style.module.css';
 
 function Profile() {
   const openProfileInfo = useParams()._id;
+
   const openProfile = useSelector((state) => state.application.openProfile);
-  const contacts = useSelector(state => state.contacts.items)
-  const profile = contacts.find((item) => {
-      return openProfileInfo === item._id;
-    });
-  // const profile = useSelector((state) =>
-  //   state.contacts.items.find((item) => {
-  //     return item._id === openProfileInfo;
-  //   }),
-  // );
+
+  const profile = useSelector((state) =>
+    state.contacts.items.find((item) => openProfileInfo === item._id),
+  );
+
   return (
     <div className={openProfile ? style.profileOpen : style.profileClose}>
       <div>
-        <Avatar size={'large'}  letterFullName={profile?.fullname[0]}/>
+        <Avatar size={'large'} fullname={profile} />
         <div className={style.profileNameEmail}>
           <div className={style.profileName}>{profile?.fullname}</div>
           <div className={style.nick}>@{profile?.username}</div>
