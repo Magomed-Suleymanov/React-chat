@@ -5,23 +5,24 @@ import moment from 'moment';
 import Avatar from '../../App/Avatar/Avatar';
 import style from './style.module.css';
 
-function Inbox({ messages }) {
+function Inbox({ message }) {
   const opened = useParams()._id;
-  const contacts = useSelector((state) => state.contacts.items);
 
-  const letterFullName = useSelector((state) =>
-    contacts.find((item) => {
+  const fullname = useSelector((state) =>
+    state.contacts.items.find((item) => {
       return item._id === opened;
     }),
   );
 
+  console.log(fullname);
+
   return (
     <div className={style.inbox}>
-      <Avatar size={'small'} contact={letterFullName?.fullname[0]} />
+      <Avatar size={'small'} fullname={fullname} />
       <div className={style.inboxMessage}>
-        <div className={style.content}>{messages.content}</div>
+        <div className={style.content}>{message.content}</div>
         <div className={style.date}>
-          <div>{moment(messages.time).format('hh:mm')}</div>
+          <div>{moment(message.time).format('hh:mm')}</div>
         </div>
       </div>
     </div>
@@ -29,7 +30,7 @@ function Inbox({ messages }) {
 }
 
 Inbox.propTypes = {
-  messages: PropTypes.object,
+  message: PropTypes.object.isRequired,
 };
 
 export default Inbox;

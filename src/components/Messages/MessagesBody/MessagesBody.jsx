@@ -1,26 +1,22 @@
-import PropTypes from 'prop-types';
-import ItemMessages from './ItemMessages';
+import { useSelector } from 'react-redux';
+import ItemMessage from './ItemMessage';
 import style from '../style.module.css';
 
-function MessagesBody({ filter, loading, messages }) {
-  const filteredMessages = messages.filter((message) =>
+function MessagesBody() {
+  const { loading, items, filter } = useSelector((state) => state.messages);
+
+  const messages = items.filter((message) =>
     message.content.toLowerCase().includes(filter.toLowerCase()),
   );
 
   return (
     <div className={style.messagesBody} id="chat-window">
       {!loading &&
-        filteredMessages.map((message, index) => {
-          return <ItemMessages key={index} messages={message} />;
+        messages.map((message) => {
+          return <ItemMessage key={message._id} message={message} />;
         })}
     </div>
   );
 }
-
-MessagesBody.propTypes = {
-  filter: PropTypes.string,
-  loading: PropTypes.bool,
-  messages: PropTypes.array,
-};
 
 export default MessagesBody;

@@ -12,27 +12,27 @@ function Social({ socials }) {
       <div className={style.headSocial}>Social</div>
       <div className={style.messenger}>
         <div className={style.wrapMessenger}>
-          <div className={style.wrapIconsAndSocial}>
-            {socials ? (
+          <div>
+            {socials?.socials ? (
               <div className={style.IconsAndSocialNickname}>
                 <AiOutlineInstagram />
-                <span>{socials.instagram}</span>
+                <span>{socials?.socials.instagram}</span>
               </div>
             ) : (
               ''
             )}
-            {socials ? (
+            {socials?.socials ? (
               <div className={style.IconsAndSocialNickname}>
                 <AiOutlineTwitter />
-                <span>{socials.twitter}</span>
+                <span>{socials?.socials.twitter}</span>
               </div>
             ) : (
               ''
             )}
-            {socials ? (
+            {socials?.socials ? (
               <div className={style.IconsAndSocialNickname}>
                 <FaFacebookF />
-                <span>{socials.facebook}</span>
+                <span>{socials?.socials.facebook}</span>
               </div>
             ) : (
               ''
@@ -45,7 +45,7 @@ function Social({ socials }) {
 }
 
 Social.propTypes = {
-  socials: PropTypes.object,
+  socials: PropTypes.object.isRequired,
 };
 
 export default Social;

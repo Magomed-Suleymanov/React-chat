@@ -28,6 +28,13 @@ export default function contacts(state = initialState, action) {
   }
 }
 
+export const setFilterText = (text) => {
+  return {
+    type: 'filter/set',
+    payload: text,
+  };
+};
+
 export const loadContacts = () => {
   return (dispatch) => {
     dispatch({ type: 'contacts/load/start' });
@@ -40,14 +47,5 @@ export const loadContacts = () => {
           payload: json,
         });
       });
-  };
-};
-
-export const setFilterText = (text) => {
-  return (dispatch) => {
-    dispatch({
-      type: 'filter/set',
-      payload: text,
-    });
   };
 };

@@ -4,24 +4,24 @@ import { GrFormClock } from 'react-icons/all';
 import IsRead from './IsRead';
 import style from './style.module.css';
 
-function OutBox({ messages }) {
+function Outbox({ message }) {
   return (
     <div className={style.outBox}>
       <div className={style.outBoxMessage}>
-        <div className={style.content}>{messages.content}</div>
+        <div className={style.content}>{message.content}</div>
         <div className={style.dateCheck}>
           <div className={style.date}>
-            {moment(messages.time).format('hh:mm')}
+            {moment(message.time).format('hh:mm')}
           </div>
-          {messages.sending ? <GrFormClock /> : <IsRead read={messages.read} />}
+          {message.sending ? <GrFormClock /> : <IsRead read={message.read} />}
         </div>
       </div>
     </div>
   );
 }
 
-OutBox.propTypes = {
-  messages: PropTypes.object,
+Outbox.propTypes = {
+  message: PropTypes.object.isRequired,
 };
 
-export default OutBox;
+export default Outbox;

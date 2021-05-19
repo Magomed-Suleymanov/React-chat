@@ -6,7 +6,7 @@ const initialState = {
 
 export default function application(state = initialState, action) {
   switch (action.type) {
-    case 'profile/OpenOrClose':
+    case 'profile/toggle':
       return {
         ...state,
         openProfile: !state.openProfile,
@@ -30,7 +30,7 @@ export default function application(state = initialState, action) {
 }
 
 export function profileContactOpen() {
-  return { type: 'profile/OpenOrClose' };
+  return { type: 'profile/toggle' };
 }
 
 export const loadMyId = () => {

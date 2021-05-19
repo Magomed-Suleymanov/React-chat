@@ -58,6 +58,13 @@ export default function messages(state = initialState, action) {
   }
 }
 
+export const setFilterMessages = (text) => {
+  return {
+    type: 'filter/messages',
+    payload: text,
+  };
+};
+
 export const loadMessages = (myId, contactId) => {
   return (dispatch) => {
     dispatch({ type: 'load/messages/start', payload: contactId });
@@ -102,14 +109,5 @@ export const sendMessage = (contactId, myId, content) => {
         });
         scrollChatDown();
       });
-  };
-};
-
-export const setFilterMessages = (text) => {
-  return (dispatch) => {
-    dispatch({
-      type: 'filter/messages',
-      payload: text,
-    });
   };
 };

@@ -128,7 +128,7 @@
 .headerMessages {
   margin: auto;
   width: 96.6%;
-  box-shadow: 0px 0px 10px 0px rgb(210, 209, 209);
+  box-shadow: 0 0 10px 0 rgb(210, 209, 209);
   align-items: center;
   display: flex;
   justify-content: space-between;
@@ -140,7 +140,7 @@
 }
 
 .messagesBody {
-  height: 90vh;
+  height: 86vh;
   overflow-y: scroll;
   display: flex;
   flex-direction: column;

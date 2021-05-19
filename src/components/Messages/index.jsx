@@ -11,10 +11,7 @@ function Messages() {
   const dispatch = useDispatch();
   const opened = useParams()._id;
 
-  const loading = useSelector((state) => state.messages.loading);
-  const messages = useSelector((state) => state.messages.items);
   const myId = useSelector((state) => state.application.myId);
-  const filter = useSelector((state) => state.messages.filter);
 
   useEffect(() => {
     if (opened) {
@@ -31,10 +28,11 @@ function Messages() {
       </div>
     );
   }
+
   return (
     <div className={style.messages}>
-      <HeaderMessages filter={filter} />
-      <MessagesBody filter={filter} messages={messages} loading={loading} />
+      <HeaderMessages />
+      <MessagesBody />
       <SendMessages />
     </div>
   );

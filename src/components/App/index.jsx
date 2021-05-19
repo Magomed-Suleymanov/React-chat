@@ -2,9 +2,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { useEffect } from 'react';
 import { loadMyId } from '../../redux/ducks/application';
-import Chats from '../Chats';
+import Chats from '../Sidebar';
 import Messages from '../Messages';
-import MyProfile from '../MyProfile';
+import MyProfile from '../Profile';
 import style from './../App/style.module.css';
 
 function App() {
