@@ -37,11 +37,10 @@ export default function messages(state = initialState, action) {
       return {
         ...state,
         items: state.items.map((item) => {
-          if (item._id === action.payload.ranId) {
+          if (item.ranId === action.payload.ranId) {
             return {
               ...item,
               sending: false,
-              _id: action.payload._id,
             };
           }
           return item;
@@ -81,31 +80,32 @@ export const loadMessages = (myId, contactId) => {
   };
 };
 
-export const sendMessage = (contactId, myId, content) => {
+export const sendMessage = (myId, contactId, content) => {
   return (dispatch) => {
     const ranId = Math.floor(Math.random() * 100) + 1;
+
     dispatch({
       type: 'send/message/start',
-      payload: { ranId: ranId, contactId, myId, content, type: 'text' },
+      payload: { ranId, contactId, myId, content, type: 'text' },
     });
+
     fetch('https://api.intocode.ru:8001/api/messages', {
       method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      },
       body: JSON.stringify({
         myId,
         contactId,
         content,
         type: 'text',
       }),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
     })
       .then((response) => response.json())
       .then((json) => {
         dispatch({
           type: 'send/message/success',
-          payload: { ranId: ranId, ...json },
+          payload: { ranId, ...json },
         });
         scrollChatDown();
       });

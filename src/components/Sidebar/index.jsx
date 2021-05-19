@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import SkeletonLoader from './SkeletonLoader';
 import SearchContacts from './SearchContacts';
 import style from './style.module.css';
-import Contacts from './Contacts';
+import Contacts from './Contact';
 
 function Chats() {
   const loading = useSelector((state) => state.contacts.loading);

@@ -12,7 +12,7 @@ function MessagesBody() {
   return (
     <div className={style.messagesBody} id="chat-window">
       {!loading &&
-        messages.map((message) => {
+        messages.map((message, ) => {
           return <ItemMessage key={message._id} message={message} />;
         })}
     </div>

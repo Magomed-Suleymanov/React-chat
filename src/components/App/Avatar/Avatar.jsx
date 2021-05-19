@@ -2,21 +2,22 @@ import PropTypes from 'prop-types';
 import { FaCircle } from 'react-icons/all';
 import style from './style.module.css';
 
-function Avatar({ size, contact, online }) {
+function Avatar({ size, letterFullName, online }) {
+
   return (
     <div className={style.imageBlock}>
       <div className={style[size]}>
-        {contact?.fullname[0]}
-        {online.online ? <FaCircle className={style.online} /> : ''}
+        {letterFullName}
+        {online ? <FaCircle className={style.online} /> : ''}
       </div>
     </div>
   );
 }
 
 Avatar.propTypes = {
-  size: PropTypes.string,
-  contact: PropTypes.object.isRequired,
-  online: PropTypes.object,
+  size: PropTypes.string.isRequired,
+  letterFullName: PropTypes.string,
+  online: PropTypes.bool,
 };
 
 Avatar.defaultProps = {

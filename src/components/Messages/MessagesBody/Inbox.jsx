@@ -8,17 +8,15 @@ import style from './style.module.css';
 function Inbox({ message }) {
   const opened = useParams()._id;
 
-  const fullname = useSelector((state) =>
+  const fullName = useSelector((state) =>
     state.contacts.items.find((item) => {
       return item._id === opened;
     }),
   );
 
-  console.log(fullname);
-
   return (
     <div className={style.inbox}>
-      <Avatar size={'small'} contact={fullname} />
+      <Avatar size={'small'} letterFullName={fullName.fullname[0]}/>
       <div className={style.inboxMessage}>
         <div className={style.content}>{message.content}</div>
         <div className={style.date}>

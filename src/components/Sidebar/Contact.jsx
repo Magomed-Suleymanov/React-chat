@@ -4,7 +4,7 @@ import moment from 'moment';
 import Avatar from '../App/Avatar/Avatar';
 import style from './style.module.css';
 
-function Contacts({ contact }) {
+function Contact({ contact }) {
   const openContactId = useParams()._id;
 
   const cutMessage = (text) => {
@@ -20,7 +20,7 @@ function Contacts({ contact }) {
         className={`${style.contact}
     ${contact._id === openContactId ? style.contactActive : ''}`}
       >
-        <Avatar size={'medium'} contact={contact} online={contact} />
+        <Avatar size={'medium'} letterFullName={contact?.fullname[0]} online={contact.online} />
         <div className={style.contentBlock}>
           <div>
             <div className={style.fullName}>{contact.fullname}</div>
@@ -37,8 +37,8 @@ function Contacts({ contact }) {
   );
 }
 
-Contacts.propTypes = {
+Contact.propTypes = {
   contact: PropTypes.object.isRequired,
 };
 
-export default Contacts;
+export default Contact;
