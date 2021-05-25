@@ -3,7 +3,6 @@ import { FaCircle } from 'react-icons/all';
 import style from './style.module.css';
 
 function Avatar({ size, fullname, online }) {
-
   return (
     <div className={style.imageBlock}>
       <div className={style[size]}>

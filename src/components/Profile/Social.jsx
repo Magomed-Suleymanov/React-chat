@@ -7,7 +7,6 @@ import {
 import style from './style.module.css';
 
 function Social({ socials }) {
-
   return (
     <div className={style.profileSocial}>
       <div className={style.headSocial}>Social</div>

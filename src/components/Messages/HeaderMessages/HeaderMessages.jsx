@@ -20,10 +20,10 @@ function HeaderMessages() {
     <div className={style.headerMessages}>
       <div className={style.SearchAndInput}>
         <div className={style.iconSearchMessages}>
-          <AiOutlineSearch className={style.AiOutlineSearch} />
+          <AiOutlineSearch  className={style.AiOutlineSearch} />
         </div>
         <div className={style.InputHeaderMessages}>
-          <input type="text" onChange={handleSearch} value={filter} />
+          <input type="text"  onChange={handleSearch} value={filter} />
         </div>
         <ClearSearchMessages filter={filter} />
       </div>
